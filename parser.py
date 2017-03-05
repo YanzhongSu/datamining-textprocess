@@ -27,10 +27,11 @@ def parse(dir_name):
 
 def main():
 
-    dir_cur = '/Users/syz/Documents/Semester2/DataMining/individualcoursework/gap-html'
-    dir_cur1 = '/Users/syz/Documents/Semester2/DataMining/individualcoursework'
+    # dir_cur = '/Users/syz/Documents/Semester2/DataMining/individualcoursework/gap-html'
+    # dir_cur1 = '/Users/syz/Documents/Semester2/DataMining/individualcoursework'
+    dir_cur = os.getcwd() + '/gap-html'
     dir_names = os.listdir(dir_cur)
-    file_name = dir_cur1 + '/text.json'
+    file_name = dir_cur + '/text.json'
     for dir_name in dir_names:
         print dir_name
         file_data = parse(dir_name)
