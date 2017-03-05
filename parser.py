@@ -4,7 +4,8 @@ import json
 
 def parse(dir_name):
 
-    dir_cur = '/Users/syz/Documents/Semester2/DataMining/individualcoursework/gap-html'
+    # dir_cur = '/Users/syz/Documents/Semester2/DataMining/individualcoursework/gap-html'
+    dir_cur = os.getcwd() + '/gap-html'
     dir_cur = dir_cur +'/' + dir_name
     fnames = os.listdir(dir_cur)
     data_total = []
