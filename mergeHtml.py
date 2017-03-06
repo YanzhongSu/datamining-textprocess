@@ -2,8 +2,9 @@ import os
 import json
 
 def read(fdir):
+	
 	with open(fdir) as json_data:
-	json_data = json.load(json_data)
+		json_data = json.load(json_data)
 	return json_data
 
 def merge(doc):
@@ -25,7 +26,7 @@ def main():
     file_name = dir_cur + '/doc.json'
 
 	for doc in json_data:
-		
+
 		content = merge(doc['file'])
 		data = {'dir': doc['dir'], 'text':content}
 
