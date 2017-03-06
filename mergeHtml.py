@@ -23,6 +23,7 @@ def main():
 	dir_cur = os.getcwd() + '/gap-html'
 
 	json_data = read(dir_cur + '/text.json')
+	
 	file_name = dir_cur + '/doc.json'
 	dic = []
 	for doc in json_data:
@@ -30,7 +31,7 @@ def main():
 		content = merge(doc['file'])
 		data = {'dir': doc['dir'], 'text':content}
 		dic.append(data)
-
+		print doc['dir']
 	with open(file_name, 'a') as outfile:
 		json.dump(dic, outfile)
 
