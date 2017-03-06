@@ -24,14 +24,15 @@ def main():
 
 	json_data = read(dir_cur + '/text.json')
 	file_name = dir_cur + '/doc.json'
-
+	dic = []
 	for doc in json_data:
 
 		content = merge(doc['file'])
 		data = {'dir': doc['dir'], 'text':content}
+		dic.append(data)
 
-		with open(file_name, 'a') as outfile:
-			json.dump(data, outfile)
+	with open(file_name, 'a') as outfile:
+		json.dump(dic, outfile)
 
 if __name__ == '__main__':
 	main()
