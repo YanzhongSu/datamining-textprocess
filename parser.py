@@ -20,7 +20,7 @@ def parse(dir_name):
         spans = soup.find_all('span', class_ = 'ocr_cinfo')
         text = ''
         for span in spans:
-            text = text + span.get_text()
+            text = text + ' ' + span.get_text()
         data = {'fname': fname, 'text': text}
         data_total.append(data)
 
