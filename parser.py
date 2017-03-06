@@ -33,13 +33,15 @@ def main():
     dir_cur = os.getcwd() + '/gap-html'
     dir_names = os.listdir(dir_cur)
     file_name = dir_cur + '/text.json'
+    dic = []
     for dir_name in dir_names:
         print dir_name
         file_data = parse(dir_name)
         data = {'dir': dir_name, 'file':file_data}
+        dic.append(data)
 
-        with open(file_name, 'a') as outfile:
-          json.dump(data, outfile)
+    with open(file_name, 'a') as outfile:
+      json.dump(dic, outfile)
 
 if __name__ == '__main__':
     main()
