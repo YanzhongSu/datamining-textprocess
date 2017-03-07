@@ -3,6 +3,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 import json
 from time import time
 
+from sklearn.datasets import fetch_20newsgroups
+
 from sklearn.cluster import KMeans
 
 import logging
