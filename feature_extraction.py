@@ -5,10 +5,19 @@ from time import time
 from __future__ import print_function
 
 from sklearn.datasets import fetch_20newsgroups
+from sklearn.decomposition import TruncatedSVD
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import Normalizer
+from sklearn import metrics
 
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, MiniBatchKMeans
 
 import logging
+from optparse import OptionParser
+import sys
 
 import numpy as np
 
@@ -31,7 +40,7 @@ def kcluster(x):
 	
 	km.fit(x)
 
-	# print "time cost for clustering is:", time() - t
+	print "time cost for clustering is:", time() - t
 	return km
 
 def main():
@@ -42,7 +51,7 @@ def main():
 	t = time()
 	vectorizer = CountVectorizer(stop_words='english')
 	x = vectorizer.fit_transform(corpus)
-	# print "time cost is:", time() - t
+	print "time cost is:", time() - t
 
 	vector = x.toarray()
 	print "vector element number, should be 24:", len(vector)
@@ -53,12 +62,12 @@ def main():
 	km = kcluster(x)
 	
 
-    terms = vectorizer.get_feature_names()
-    for i in range(4):
-        print("Cluster %d:" % i, end='')
-        for ind in order_centroids[i, :10]:
-            print(' %s' % terms[ind], end='')
-        print()
+	terms = vectorizer.get_feature_names()
+	for i in range(4):
+		print("Cluster %d:" % i, end='')
+		for ind in order_centroids[i, :10]:
+			print(' %s' % terms[ind], end='')
+		print()
 
 if __name__ == '__main__':
 	main()
