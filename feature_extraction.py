@@ -1,14 +1,9 @@
-from __future__ import print_function
 import os
 from sklearn.feature_extraction.text import CountVectorizer
 import json
 from time import time
 
-from sklearn.datasets import fetch_20newsgroups
-
 from sklearn.cluster import KMeans
-
-import logging
 
 def read(fdir):
 	with open(fdir) as json_data:
