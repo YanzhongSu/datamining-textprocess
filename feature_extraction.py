@@ -1,5 +1,6 @@
 import os
 from sklearn.feature_extraction.text import CountVectorizer
+import json
 
 def read(fdir):
 	with open(fdir) as json_data:
