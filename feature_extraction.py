@@ -34,10 +34,10 @@ def read(fdir):
 
 	return corpus, index
 
-def kcluster(x):
+def kcluster(x, k):
 	
 	t = time()
-	km = KMeans(n_clusters=4, init='k-means++', max_iter=100, n_init=1)
+	km = KMeans(n_clusters=k, init='k-means++', max_iter=100, n_init=1)
 	
 	km.fit(x)
 
@@ -59,12 +59,14 @@ def main():
 
 	for i in xrange(len(vector)):
 		print "the vector length of file", index[i], "is:", len(vector[i])
-
-	km = kcluster(x)
+	
+	k = 5
+	km = kcluster(x, k)
 	
 	order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 	terms = vectorizer.get_feature_names()
-	for i in range(4):
+	print "Top terms per cluster:"
+	for i in range(k):
 		print "Cluster :", i
 		for ind in order_centroids[i, :10]:
 			print terms[ind],
