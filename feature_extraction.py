@@ -74,7 +74,7 @@ def main():
 		print()
 
 	print "labels"
-	
+
 	cat = []
 	for i in range(k):
 		cat.append([])
@@ -84,6 +84,10 @@ def main():
 		#print index[i], ":", labels[i]
 
 	for item in cat:
+		
+		if len(item) > 0:
+			print "Labels:", item[0][1], "has", len(item), "documents"
+
 		for i in item:
 			print i[0], ":", i[1]
 
