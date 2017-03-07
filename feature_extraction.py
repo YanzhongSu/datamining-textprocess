@@ -4,23 +4,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 import json
 from time import time
 
-
 from sklearn.datasets import fetch_20newsgroups
-from sklearn.decomposition import TruncatedSVD
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_extraction.text import HashingVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import Normalizer
-from sklearn import metrics
 
-from sklearn.cluster import KMeans, MiniBatchKMeans
+from sklearn.cluster import KMeans
 
 import logging
-from optparse import OptionParser
-import sys
-
-import numpy as np
 
 def read(fdir):
 	with open(fdir) as json_data:
