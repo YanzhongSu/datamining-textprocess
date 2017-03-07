@@ -65,12 +65,17 @@ def main():
 	
 	order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 	terms = vectorizer.get_feature_names()
+	labels = km.labels_
 	print "Top terms per cluster:"
 	for i in range(k):
 		print "Cluster :", i
 		for ind in order_centroids[i, :10]:
 			print terms[ind],
 		print()
+		
+	print "labels"
+	for i in range(len(index)):
+		print index[i], ":", labels[i]
 
 if __name__ == '__main__':
 	main()
