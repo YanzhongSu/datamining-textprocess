@@ -72,10 +72,20 @@ def main():
 		for ind in order_centroids[i, :10]:
 			print terms[ind],
 		print()
-		
+
 	print "labels"
+	
+	cat = []
+	for i in range(k):
+		cat.append([])
+
 	for i in range(len(index)):
-		print index[i], ":", labels[i]
+		cat[labels[i]].append([index[i], labels[i]])
+		#print index[i], ":", labels[i]
+
+	for item in cat:
+		for i in item:
+			print i[0], ":", i[1]
 
 if __name__ == '__main__':
 	main()
