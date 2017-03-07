@@ -1,3 +1,4 @@
+#from __future__ import print_function
 import os
 from sklearn.feature_extraction.text import CountVectorizer
 import json
@@ -42,20 +43,20 @@ def main():
 	print "time cost is:", time() - t
 
 	vector = x.toarray()
-	#print "vector element number, should be 24:", len(vector)
+	print "vector element number, should be 24:", len(vector)
 
-	# for i in xrange(len(vector)):
-	# 	print "the vector length of file", index[i], "is:", len(vector[i])
+	for i in xrange(len(vector)):
+		print "the vector length of file", index[i], "is:", len(vector[i])
 
-	# km = kcluster(x)
+	km = kcluster(x)
 	
 
-	# terms = vectorizer.get_feature_names()
-	# for i in range(4):
-	# 	print "Cluster :", i
-	# 	for ind in order_centroids[i, :10]:
-	# 		print terms[ind],
-	# 	print()
+	terms = vectorizer.get_feature_names()
+	for i in range(4):
+		print "Cluster :", i
+		for ind in order_centroids[i, :10]:
+			print terms[ind],
+		print()
 
 if __name__ == '__main__':
 	main()
