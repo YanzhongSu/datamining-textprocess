@@ -1,8 +1,9 @@
+from __future__ import print_function
 import os
 from sklearn.feature_extraction.text import CountVectorizer
 import json
 from time import time
-from __future__ import print_function
+
 
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.decomposition import TruncatedSVD
