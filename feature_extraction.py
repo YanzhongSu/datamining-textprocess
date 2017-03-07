@@ -20,7 +20,7 @@ def main():
 
 	corpus, index = read(dir_cur + '/doc.json')
 
-	vectorizer = CountVectorizer()
+	vectorizer = CountVectorizer(stop_words='english')
 	x = vectorizer.fit_transform(corpus)
 
 	vector = x.toarray()
