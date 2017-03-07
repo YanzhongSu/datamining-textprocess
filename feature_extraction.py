@@ -5,6 +5,8 @@ from time import time
 
 from sklearn.cluster import KMeans
 
+import logging
+
 def read(fdir):
 	with open(fdir) as json_data:
 		json_data = json.load(json_data)
