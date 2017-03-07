@@ -64,9 +64,9 @@ def main():
 
 	terms = vectorizer.get_feature_names()
 	for i in range(4):
-		print("Cluster %d:" % i, end='')
+		print "Cluster :", i
 		for ind in order_centroids[i, :10]:
-			print(' %s' % terms[ind], end='')
+			print terms[ind],
 		print()
 
 if __name__ == '__main__':
