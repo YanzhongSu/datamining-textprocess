@@ -41,7 +41,7 @@ def kcluster(x):
 	
 	km.fit(x)
 
-	print "time cost for clustering is:", time() - t
+	# print "time cost for clustering is:", time() - t
 	return km
 
 def main():
@@ -52,7 +52,7 @@ def main():
 	t = time()
 	vectorizer = CountVectorizer(stop_words='english')
 	x = vectorizer.fit_transform(corpus)
-	print "time cost is:", time() - t
+	# print "time cost is:", time() - t
 
 	vector = x.toarray()
 	print "vector element number, should be 24:", len(vector)
