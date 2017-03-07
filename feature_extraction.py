@@ -62,7 +62,7 @@ def main():
 
 	km = kcluster(x)
 	
-
+	order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 	terms = vectorizer.get_feature_names()
 	for i in range(4):
 		print "Cluster :", i
