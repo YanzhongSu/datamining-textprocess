@@ -59,15 +59,15 @@ def main():
 	for i in xrange(len(vector)):
 		print "the vector length of file", index[i], "is:", len(vector[i])
 
-	km = kcluster(x)
+	# km = kcluster(x)
 	
 
-	terms = vectorizer.get_feature_names()
-	for i in range(4):
-		print "Cluster :", i
-		for ind in order_centroids[i, :10]:
-			print terms[ind],
-		print()
+	# terms = vectorizer.get_feature_names()
+	# for i in range(4):
+	# 	print "Cluster :", i
+	# 	for ind in order_centroids[i, :10]:
+	# 		print terms[ind],
+	# 	print()
 
 if __name__ == '__main__':
 	main()
