@@ -47,7 +47,8 @@ def kcluster(x, k):
 def mCluster(x):
 	t = time()
 	ms = MeanShift()
-	return ms.fit(x)
+	ms.fit(x)
+	return ms
 
 def main():
 
