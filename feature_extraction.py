@@ -48,6 +48,7 @@ def mCluster(x):
 	t = time()
 	ms = MeanShift()
 	ms.fit(x)
+	print "time cost for clustering is:", time() - t
 	return ms
 
 def main():
@@ -91,7 +92,7 @@ def main():
 	print "Applying KMeans Clustering "	
 	for ki in range(2, 3):
 		km = kcluster(vector, k)
-		
+		km1 = kcluster(x, k)
 		order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 
 		labels = km.labels_
