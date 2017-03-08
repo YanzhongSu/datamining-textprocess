@@ -14,7 +14,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
 from sklearn import metrics
 
-from sklearn.cluster import KMeans, MiniBatchKMeans
+from sklearn.cluster import KMeans, MeanShit
 
 import logging
 from optparse import OptionParser
@@ -44,6 +44,11 @@ def kcluster(x, k):
 	print "time cost for clustering is:", time() - t
 	return km
 
+def mCluster(x):
+	t = time()
+	ms = MeanShit()
+	return ms.fit(x)
+
 def main():
 
 	dir_cur = os.getcwd() + '/gap-html'
@@ -53,18 +58,41 @@ def main():
 	vectorizer = CountVectorizer(stop_words='english')
 	x = vectorizer.fit_transform(corpus)
 	print "time cost is:", time() - t
-
+	terms = vectorizer.get_feature_names()
 	vector = x.toarray()
 	print "vector element number, should be 24:", len(vector)
 
 	for i in xrange(len(vector)):
 		print "the vector length of file", index[i], "is:", len(vector[i])
 	
-	for k in range(2, 10):
+	print "Applying Hierarchical Clustering "
+	
+	ms = mCluster(x)
+	labels = ms.labels_
+	k = len(np.unique(labels))
+	print "There are in total", k, "Clustering"
+
+	cat = []
+	for i in range(k):
+		cat.append([])
+
+	for i in range(len(index)):
+		cat[labels[i]].append([index[i], labels[i]])
+	
+	order_centroids = ms.cluster_centers_.argsort()[:, ::-1]
+	print "Top terms per cluster:"
+	for i in range(k):
+		print "Cluster :", i, "has", len(cat[i]), "documents"
+		for ind in order_centroids[i, :10]:
+			print terms[ind],
+		print()
+
+	print "Applying KMeans Clustering "	
+	for ki in range(2, 3):
 		km = kcluster(x, k)
 		
 		order_centroids = km.cluster_centers_.argsort()[:, ::-1]
-		terms = vectorizer.get_feature_names()
+
 		labels = km.labels_
 
 		cat = []
