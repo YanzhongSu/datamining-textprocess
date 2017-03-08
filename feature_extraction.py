@@ -14,7 +14,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
 from sklearn import metrics
 
-from sklearn.cluster import KMeans, MeanShit
+from sklearn.cluster import KMeans, MeanShift
 
 import logging
 from optparse import OptionParser
