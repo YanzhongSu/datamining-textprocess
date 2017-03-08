@@ -90,7 +90,7 @@ def main():
 
 	print "Applying KMeans Clustering "	
 	for ki in range(2, 3):
-		km = kcluster(x, k)
+		km = kcluster(vector, k)
 		
 		order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 
