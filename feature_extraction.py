@@ -68,7 +68,7 @@ def main():
 	
 	print "Applying Hierarchical Clustering "
 	
-	ms = mCluster(x)
+	ms = mCluster(vector)
 	labels = ms.labels_
 	k = len(np.unique(labels))
 	print "There are in total", k, "Clustering"
