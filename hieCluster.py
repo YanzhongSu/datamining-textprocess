@@ -98,7 +98,7 @@ def main():
 		# 	print terms[ind],
 		print
 
-		for j range(len(cat[i])) :
+		for j in range(len(cat[i])) :
 			print "Doc:", j+1, cat[i][j][0]
 		print 
 
@@ -111,7 +111,7 @@ def main():
 		labels = km.labels_
 
 		cat = []
-		for i in in range(k):
+		for i in range(k):
 			cat.append([])
 
 		for i in range(len(index)):
