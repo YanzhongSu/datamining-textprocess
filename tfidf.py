@@ -55,7 +55,7 @@ def main():
 
 	dir_cur = os.getcwd() + '/gap-html'
 
-	corpus, index = read(dir_cur + '/doc.json')
+	corpus, index = read(dir_cur + '/doc_realName.json')
 	t = time()
 	# vectorizer = CountVectorizer(stop_words='english')
 	vectorizer = TfidfVectorizer(stop_words='english', min_df = 2, analyzer = 'word', max_df = 5)
