@@ -93,14 +93,14 @@ def main():
 	# order_centroids = ac.cluster_centers_.argsort()[:, ::-1]
 	# print "Top terms per cluster:"
 	for i in range(k):
-		# print "Cluster :", i, "has", len(cat[i]), "documents"
+		print "Cluster :", i, "has", len(cat[i]), "documents"
 		# for ind in order_centroids[i, :10]:
 		# 	print terms[ind],
-		# print()
+		print
 
-		for item in cat[i]:
-			print item[0]
-		print ()
+		for j range(len(cat[i])) :
+			print "Doc:", j+1, cat[i][j][0]
+		print 
 
 	print "Applying KMeans Clustering "	
 	for ki in range(2, 3):
@@ -120,12 +120,13 @@ def main():
 		print "Top terms per cluster:"
 		for i in range(k):
 			print "Cluster :", i, "has", len(cat[i]), "documents"
-			for ind in order_centroids[i, :10]:
-				print terms[ind],
-			print()
+			# for ind in order_centroids[i, :10]:
+			# 	print terms[ind],
+			print
 
-			for item in cat[i]:
-				print item[0]
+			for j range(len(cat[i])) :
+				print "Doc:", j+1, cat[i][j][0]
+			print 
 		# print "labels"
 
 
