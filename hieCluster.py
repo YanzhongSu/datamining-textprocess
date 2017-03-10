@@ -35,13 +35,13 @@ def read(fdir):
 
 	return corpus, index
 
-def aggCluster(x):
+def aggCluster(x, k):
 	t = time()
-	ac = AgglomerativeClustering()
+	ac = AgglomerativeClustering(n_clusters = k)
 	ac.fit(x)
 	print "time cost for clustering is:", time() - t
 	return ac
-	
+
 def kcluster(x, k):
 	
 	t = time()
@@ -78,7 +78,7 @@ def main():
 	
 	print "Applying Hierarchical Clustering "
 	
-	ac = aggCluster(vector)
+	ac = aggCluster(vector, 7)
 	labels = ac.labels_
 	k = len(np.unique(labels))
 	print "There are in total", k, "Clustering"
@@ -90,13 +90,13 @@ def main():
 	for i in range(len(index)):
 		cat[labels[i]].append([index[i], labels[i]])
 	
-	order_centroids = ac.cluster_centers_.argsort()[:, ::-1]
-	print "Top terms per cluster:"
+	# order_centroids = ac.cluster_centers_.argsort()[:, ::-1]
+	# print "Top terms per cluster:"
 	for i in range(k):
-		print "Cluster :", i, "has", len(cat[i]), "documents"
-		for ind in order_centroids[i, :10]:
-			print terms[ind],
-		print()
+		# print "Cluster :", i, "has", len(cat[i]), "documents"
+		# for ind in order_centroids[i, :10]:
+		# 	print terms[ind],
+		# print()
 
 		for item in cat[i]:
 			print item[0]
