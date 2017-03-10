@@ -57,7 +57,7 @@ def main():
 
 	corpus, index = read(dir_cur + '/doc_realName.json')
 	t = time()
-	vectorizer = CountVectorizer(stop_words='english')
+	vectorizer = CountVectorizer(stop_words='english', min_df = 2, analyzer = 'word', max_df = 5)
 	x = vectorizer.fit_transform(corpus)
 	print "time cost is:", time() - t
 	terms = vectorizer.get_feature_names()
@@ -78,6 +78,7 @@ def main():
 	for i in range(k):
 		cat.append([])
 
+	# mapping correspoding doc to corresponding clusters
 	for i in range(len(index)):
 		cat[labels[i]].append([index[i], labels[i]])
 	
@@ -89,7 +90,12 @@ def main():
 			print terms[ind],
 		print()
 
-	print "Applying KMeans Clustering "	
+		for item in cat[i]:
+			print item[0]
+
+	print ()
+	print "Applying KMeans Clustering "
+
 	for ki in range(2, 3):
 		km = kcluster(vector, k)
 		km1 = kcluster(x, k)
@@ -110,6 +116,9 @@ def main():
 			for ind in order_centroids[i, :10]:
 				print terms[ind],
 			print()
+
+			for item in cat[i]:
+				print item[0]
 
 		# print "labels"
 
