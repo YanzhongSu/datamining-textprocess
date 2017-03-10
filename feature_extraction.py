@@ -92,6 +92,7 @@ def main():
 
 		for item in cat[i]:
 			print item[0]
+			print ()
 
 	print ()
 	print "Applying KMeans Clustering "

@@ -58,7 +58,7 @@ def main():
 	corpus, index = read(dir_cur + '/doc.json')
 	t = time()
 	# vectorizer = CountVectorizer(stop_words='english')
-	vectorizer = TfidfVectorizer(stop_words='english')
+	vectorizer = TfidfVectorizer(stop_words='english', min_df = 2, analyzer = 'word', max_df = 5)
 	x = vectorizer.fit_transform(corpus)
 	print "time cost is:", time() - t
 	terms = vectorizer.get_feature_names()
@@ -90,6 +90,10 @@ def main():
 			print terms[ind],
 		print()
 
+		for item in cat[i]:
+			print item[0]
+		print ()
+
 	print "Applying KMeans Clustering "	
 	for ki in range(2, 3):
 		km = kcluster(vector, k)
@@ -112,6 +116,8 @@ def main():
 				print terms[ind],
 			print()
 
+			for item in cat[i]:
+				print item[0]
 		# print "labels"
 
 
