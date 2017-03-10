@@ -43,12 +43,12 @@ def main():
 	
 	file_name = dir_cur + '/doc_realName.json'
 	dic = []
-	fname = fname()
+	filename = fname()
 
 	for doc in json_data:
 
 		# content = merge(doc['file'])
-		data = {'dir': fname[doc['dir']], 'text':doc['text']}
+		data = {'dir': filename[doc['dir']], 'text':doc['text']}
 		dic.append(data)
 		print doc['dir']
 	with open(file_name, 'a') as outfile:
