@@ -40,7 +40,8 @@ def aggCluster(x):
 	ac = AgglomerativeClustering()
 	ac.fit(x)
 	print "time cost for clustering is:", time() - t
-
+	return ac
+	
 def kcluster(x, k):
 	
 	t = time()
