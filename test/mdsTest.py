@@ -3,6 +3,8 @@
 
 print(__doc__)
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 
 from matplotlib import pyplot as plt
 from matplotlib.collections import LineCollection
