@@ -87,8 +87,7 @@ def main():
 	for i in range(k):
 		print "Cluster :", i, "has", len(cat[i]), "documents"
 		for ind in order_centroids[i, :10]:
-			# print terms[ind],
-			pass
+			print terms[ind],
 		print()
 
 		for item in cat[i]:
@@ -116,7 +115,8 @@ def main():
 		for i in range(k):
 			print "Cluster :", i, "has", len(cat[i]), "documents"
 			for ind in order_centroids[i, :10]:
-				print terms[ind],
+				# print terms[ind],
+				pass
 			print()
 
 			for item in cat[i]:
