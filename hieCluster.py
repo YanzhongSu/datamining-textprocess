@@ -120,10 +120,11 @@ def main():
 		print "Top terms per cluster:"
 		for i in range(k):
 			print "Cluster :", i, "has", len(cat[i]), "documents"
-			# for ind in order_centroids[i, :10]:
-			# 	print terms[ind],
+			for ind in order_centroids[i, :10]:
+				print terms[ind],
 			print
-
+			print
+			
 			for j in range(len(cat[i])) :
 				print "Doc:", j+1, cat[i][j][0]
 			print 
