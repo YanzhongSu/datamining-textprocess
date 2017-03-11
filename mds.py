@@ -65,7 +65,7 @@ def main():
 
 	pos = clf.fit_transform(pos)
 
-	plt.scatter(pos[:, 0], pos[:, 1], color='turquoise', s=s, lw=0, label='MDS')
+	plt.scatter(pos[:, 0], pos[:, 1], color='turquoise', s= 100, lw=0, label='MDS')
 
 	# Plot the edges
 	start_idx, end_idx = np.where(pos)
