@@ -53,7 +53,7 @@ def main():
 
 	simi = euclidean_distances(vector)
 
-	mds = manifold.MDS(n_components=2, max_iter=3000, eps=1e-9, random_state=seed,dissimilarity="precomputed", n_jobs=1)
+	mds = manifold.MDS(n_components=2, max_iter=3000, eps=1e-9, random_state=0,dissimilarity="precomputed", n_jobs=1)
 	pos = mds.fit(similarities).embedding_
 
 	# Rescale the data
