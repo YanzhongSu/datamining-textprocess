@@ -90,6 +90,7 @@ def main():
 		for ind in order_centroids[i, :20]:
 			print terms[ind],
 		print
+		print
 
 		for item in cat[i]:
 			print item[0]
@@ -116,7 +117,9 @@ def main():
 			print "Cluster :", i, "has", len(cat[i]), "documents"
 			for ind in order_centroids[i, :20]:
 				print terms[ind],
+
 			print
+			print 
 
 			for item in cat[i]:
 				print item[0]

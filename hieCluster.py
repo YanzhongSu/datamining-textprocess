@@ -66,7 +66,7 @@ def main():
 	corpus, index = read(dir_cur + '/doc_realName.json')
 	t = time()
 	# vectorizer = CountVectorizer(stop_words='english')
-	vectorizer = TfidfVectorizer(stop_words='english', min_df = 2, analyzer = 'word', max_df = 5)
+	vectorizer = TfidfVectorizer(stop_words='english', min_df = 2, analyzer = 'word')
 	x = vectorizer.fit_transform(corpus)
 	print "time cost is:", time() - t
 	terms = vectorizer.get_feature_names()
