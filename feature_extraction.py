@@ -57,7 +57,7 @@ def main():
 
 	corpus, index = read(dir_cur + '/doc_realName.json')
 	t = time()
-	vectorizer = CountVectorizer(stop_words='english', min_df = 2, analyzer = 'word')
+	vectorizer = CountVectorizer(stop_words='english', min_df = 2, analyzer = 'word', token_pattern = '\b[a-zA-Z]{3,100}\b')
 	x = vectorizer.fit_transform(corpus)
 	print "time cost is:", time() - t
 	terms = vectorizer.get_feature_names()
@@ -117,7 +117,7 @@ def main():
 		print "Top terms per cluster:"
 		for i in range(k):
 			print "Cluster :", i, "has", len(cat[i]), "documents"
-			for ind in order_centroids[i, :10]:
+			for ind in order_centroids[i, :20]:
 				print terms[ind],
 				pass
 			print
