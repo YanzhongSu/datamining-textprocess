@@ -78,7 +78,7 @@ def main():
 	
 	print "Applying Hierarchical Clustering "
 	
-	ac = aggCluster(vector, 7)
+	ac = aggCluster(vector, 8)
 	labels = ac.labels_
 	k = len(np.unique(labels))
 	print "There are in total", k, "Clustering"
@@ -124,7 +124,7 @@ def main():
 				print terms[ind],
 			print
 			print
-			
+
 			for j in range(len(cat[i])) :
 				print "Doc:", j+1, cat[i][j][0]
 			print 
