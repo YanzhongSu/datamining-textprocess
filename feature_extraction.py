@@ -103,7 +103,7 @@ def main():
 	k1 = 4
 	for ki in range(2, 3):
 		km = kcluster(vector, k1)
-		km1 = kcluster(x, k)
+		km1 = kcluster(x, k1)
 		order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 
 		labels = km.labels_
@@ -116,7 +116,7 @@ def main():
 			cat[labels[i]].append([index[i], labels[i]])
 
 		print "Top terms per cluster:"
-		for i in range(k):
+		for i in range(k1):
 			print "Cluster :", i, "has", len(cat[i]), "documents"
 			for ind in order_centroids[i, :20]:
 				print terms[ind],
