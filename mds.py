@@ -2,6 +2,7 @@ import numpy as np
 
 from matplotlib import pyplot as plt
 from matplotlib.collections import LineCollection
+matplotlib.use('Agg')
 
 from sklearn import manifold
 from sklearn.metrics import euclidean_distances
