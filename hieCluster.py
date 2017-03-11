@@ -45,7 +45,7 @@ def aggCluster(x, k):
 def kcluster(x, k):
 	
 	t = time()
-	km = KMeans(n_clusters=k, init='k-means++', max_iter=100, n_init=1)
+	km = KMeans(n_clusters=k, init='k-means++', max_iter=100, n_init=1, random_state = 0)
 	
 	km.fit(x)
 
