@@ -88,13 +88,13 @@ def main():
 		print "Cluster :", i, "has", len(cat[i]), "documents"
 		for ind in order_centroids[i, :10]:
 			print terms[ind],
-		print()
+		print
 
 		for item in cat[i]:
 			print item[0]
-			print ()
+			print 
 
-	print ()
+	print 
 	print "Applying KMeans Clustering "
 
 	for ki in range(2, 3):
@@ -117,10 +117,11 @@ def main():
 			for ind in order_centroids[i, :10]:
 				# print terms[ind],
 				pass
-			print()
+			print
 
 			for item in cat[i]:
 				print item[0]
+				print
 
 		# print "labels"
 
