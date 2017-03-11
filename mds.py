@@ -65,6 +65,8 @@ def main():
 
 	pos = clf.fit_transform(pos)
 
+	fig = plt.figure(1)
+	ax = plt.axes([0., 0., 1., 1.])
 	# plt.scatter(pos[:, 0], pos[:, 1], color='turquoise', s= 100, lw=0, label='MDS')
 
 	# Plot the edges
