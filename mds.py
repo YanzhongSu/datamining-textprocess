@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
+
 from matplotlib import pyplot as plt
 from matplotlib.collections import LineCollection
 
@@ -68,7 +69,7 @@ def main():
 
 	fig = plt.figure(1)
 	ax = plt.axes([0., 0., 1., 1.])
-	# plt.scatter(pos[:, 0], pos[:, 1], color='turquoise', s= 100, lw=0, label='MDS')
+	plt.scatter(pos[:, 0], pos[:, 1], color='turquoise', s= 100, lw=0, label='MDS')
 
 	# Plot the edges
 	start_idx, end_idx = np.where(pos)
