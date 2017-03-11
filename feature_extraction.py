@@ -64,8 +64,8 @@ def main():
 	vector = x.toarray()
 	print "vector element number, should be 24:", len(vector)
 
-	for i in xrange(len(vector)):
-		print "the vector length of file", index[i], "is:", len(vector[i])
+	# for i in xrange(len(vector)):
+	# 	print "the vector length of file", index[i], "is:", len(vector[i])
 	
 	print "Applying Hierarchical Clustering "
 	
@@ -84,9 +84,12 @@ def main():
 	
 	order_centroids = ms.cluster_centers_.argsort()[:, ::-1]
 	print "Top terms per cluster:"
+	print 
 	for i in range(k):
 		print "Cluster :", i, "has", len(cat[i]), "documents"
-		for ind in order_centroids[i, :10]:
+		print 
+
+		for ind in order_centroids[i, :20]:
 			print terms[ind],
 		print
 
