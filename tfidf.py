@@ -57,8 +57,9 @@ def main():
 
 	corpus, index = read(dir_cur + '/doc_realName.json')
 	t = time()
-	# vectorizer = CountVectorizer(stop_words='english')
-	vectorizer = TfidfVectorizer(stop_words='english', min_df = 2, analyzer = 'word', max_df = 5)
+	
+	# vectorizer = CountVectorizer(stop_words='english', min_df = 2, analyzer = 'word', token_pattern = r'\b[a-zA-Z]{4,100}\b')
+	vectorizer = TfidfVectorizer(stop_words='english', min_df = 2, analyzer = 'word', token_pattern = r'\b[a-zA-Z]{4,100}\b')
 	x = vectorizer.fit_transform(corpus)
 	print "time cost is:", time() - t
 	terms = vectorizer.get_feature_names()
@@ -86,38 +87,40 @@ def main():
 	print "Top terms per cluster:"
 	for i in range(k):
 		print "Cluster :", i, "has", len(cat[i]), "documents"
-		for ind in order_centroids[i, :10]:
+		for ind in order_centroids[i, :20]:
 			print terms[ind],
-		print()
+		print
 
 		for item in cat[i]:
 			print item[0]
-		print ()
+			print
 
+	k1 = 4
 	print "Applying KMeans Clustering "	
 	for ki in range(2, 3):
-		km = kcluster(vector, k)
-		km1 = kcluster(x, k)
+		km = kcluster(vector, k1)
+		km1 = kcluster(x, k1)
 		order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 
 		labels = km.labels_
 
 		cat = []
-		for i in range(k):
+		for i in range(k1):
 			cat.append([])
 
 		for i in range(len(index)):
 			cat[labels[i]].append([index[i], labels[i]])
 
 		print "Top terms per cluster:"
-		for i in range(k):
+		for i in range(k1):
 			print "Cluster :", i, "has", len(cat[i]), "documents"
-			for ind in order_centroids[i, :10]:
+			for ind in order_centroids[i, :20]:
 				print terms[ind],
-			print()
+			print
 
 			for item in cat[i]:
 				print item[0]
+				print
 		# print "labels"
 
 
