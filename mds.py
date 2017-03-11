@@ -65,5 +65,21 @@ def main():
 
 	pos = clf.fit_transform(pos)
 
+	plt.scatter(pos[:, 0], pos[:, 1], color='turquoise', s=s, lw=0, label='MDS')
+
+	# Plot the edges
+	start_idx, end_idx = np.where(pos)
+
+	segments = [[vector[i, :], vector[j, :]]
+		for i in range(len(pos)) for j in range(len(pos))]
+
+	values = np.abs(simi)
+	lc = LineCollection(segments,zorder=0, cmap=plt.cm.Blues,norm=plt.Normalize(0, values.max()))
+	lc.set_array(simi.flatten())
+	lc.set_linewidths(0.5 * np.ones(len(segments)))
+	ax.add_collection(lc)
+
+	plt.show()
+
 if __name__ == '__main__':
 	main()
