@@ -57,7 +57,7 @@ def main():
 
 	corpus, index = read(dir_cur + '/doc_realName.json')
 	t = time()
-	vectorizer = CountVectorizer(stop_words='english', min_df = 2, analyzer = 'word', token_pattern = r'\b[a-zA-Z]{2,100}\b')
+	vectorizer = CountVectorizer(stop_words='english', min_df = 2, analyzer = 'word', token_pattern = r'\b[a-zA-Z]{4,100}\b')
 	x = vectorizer.fit_transform(corpus)
 	print "time cost is:", time() - t
 	terms = vectorizer.get_feature_names()
