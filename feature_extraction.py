@@ -22,6 +22,7 @@ import sys
 
 import numpy as np
 import pandas as pd
+import visual
 
 def read(fdir):
 	with open(fdir) as json_data:
@@ -137,7 +138,8 @@ def main():
 			for item in cat[i]:
 				print item[0]
 				print
-
+		mds = visual.mds()
+		mds.visual(vector, index, km)
 		# print "labels"
 
 

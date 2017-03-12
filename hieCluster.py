@@ -22,6 +22,7 @@ from optparse import OptionParser
 import sys
 
 import numpy as np
+import visual 
 
 def read(fdir):
 	with open(fdir) as json_data:
@@ -78,7 +79,7 @@ def main():
 	
 	print "Applying Hierarchical Clustering "
 	
-	ac = aggCluster(vector, 8)
+	ac = aggCluster(vector, 7)
 	labels = ac.labels_
 	k = len(np.unique(labels))
 	print "There are in total", k, "Clustering"
@@ -102,10 +103,13 @@ def main():
 			print "Doc:", j+1, cat[i][j][0]
 		print 
 
+	mds = visual.mds()
+	mds.visual(vector, index, ac)
+
+
 	print "Applying KMeans Clustering "	
 	for ki in range(2, 3):
 		km = kcluster(vector, k)
-		km1 = kcluster(x, k)
 		order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 
 		labels = km.labels_
@@ -130,6 +134,8 @@ def main():
 			print 
 		# print "labels"
 
+		mds = visual.mds()
+		mds.visual(vector, index, km)
 
 		# 	#print index[i], ":", labels[i]
 
