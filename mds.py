@@ -71,11 +71,11 @@ def main():
 	mds = manifold.MDS(n_components=2, max_iter=3000, eps=1e-9, random_state=0,dissimilarity="precomputed", n_jobs=1)
 	
 	pos = mds.fit_transform(dist)  # shape (n_components, n_samples)
-
+	print type(pos)
 	xs, ys = pos[:, 0], pos[:, 1]
 	print
 	print
-	k = 5
+	k = 8
 	print "Applying KMeans Clustering "	
 	km = kcluster(vector, k)
 	km1 = kcluster(x, k)
@@ -85,14 +85,18 @@ def main():
 	clusters = km.labels_.tolist()
 
 	#set up colors per clusters using a dict
-	cluster_colors = {0: '#1b9e77', 1: '#d95f02', 2: '#7570b3', 3: '#e7298a', 4: '#66a61e'}
+	cluster_colors = {0: '#1b9e77', 1: '#d95f02', 2: '#7570b3', 3: '#e7298a', 4: '#66a61e', 5: '#0f2ce2', 6: '#f7f307', 7: '#f70707', 8: '#07f7e2'}
 
 	#set up cluster names using a dict
-	cluster_names = {0: 'Family, home, war', 
-                 1: 'Police, killed, murders', 
-                 2: 'Father, New York, brothers', 
-                 3: 'Dance, singing, love', 
-                 4: 'Killed, soldiers, captain'}
+	cluster_names = {0: 'Cluster 1', 
+                 1: 'Cluster 2', 
+                 2: 'Cluster 3', 
+                 3: 'Cluster 4', 
+                 4: 'Cluster 5',
+                 5: 'Cluster 6',
+                 6: 'Cluster 7',
+                 7: 'Cluster 8',
+                 8: 'Cluster 9'}
 
 	#some ipython magic to show the matplotlib plots inline
 	# %matplotlib inline 
@@ -100,7 +104,7 @@ def main():
 
 	import pandas as pd
 	#create data frame that has the result of the MDS plus the cluster numbers and titles
-	df = pd.DataFrame(dict(x=xs, y=ys, label=clusters)) 
+	df = pd.DataFrame(dict(x=xs, y=ys, label=clusters, title = index)) 
 
 	#group by cluster
 	groups = df.groupby('label')
@@ -132,8 +136,8 @@ def main():
 	ax.legend(numpoints=1)  #show legend with only 1 point
 
 	#add label in x,y position with the label as the film title
-	# for i in range(len(df)):
-	# 	ax.text(df.ix[i]['x'], df.ix[i]['y'], df.ix[i]['title'], size=8)  
+	for i in range(len(df)):
+		ax.text(df.ix[i]['x'], df.ix[i]['y'], df.ix[i]['title'], size=8)  
 
 	plt.show() #show the plot
 

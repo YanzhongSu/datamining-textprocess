@@ -21,6 +21,7 @@ from optparse import OptionParser
 import sys
 
 import numpy as np
+import pandas as pd
 
 def read(fdir):
 	with open(fdir) as json_data:
@@ -78,6 +79,13 @@ def main():
 	for i in range(k):
 		cat.append([])
 
+	doc = {'title': index, 'cluster': labels}
+	frame = pd.DataFrame(doc, index = [labels], columns = ['title', 'cluster'])
+	print 
+	print "using Pandas:"
+	print frame['cluster'].value_counts()
+	print
+
 	# mapping correspoding doc to corresponding clusters
 	for i in range(len(index)):
 		cat[labels[i]].append([index[i], labels[i]])
@@ -93,6 +101,9 @@ def main():
 			print terms[ind],
 		print
 
+		# for item in frame.ix[i]['title'].values.tolist():
+		# 	print item
+		# 	print 
 		for item in cat[i]:
 			print item[0]
 			print 
