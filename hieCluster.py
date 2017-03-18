@@ -79,7 +79,7 @@ def main():
 	
 	print "Applying Hierarchical Clustering "
 	
-	ac = aggCluster(vector, 7)
+	ac = aggCluster(vector, 8)
 	labels = ac.labels_
 	k = len(np.unique(labels))
 	print "There are in total", k, "Clustering"
@@ -104,7 +104,7 @@ def main():
 		print 
 
 	mds = visual.mds()
-	mds.visual(vector, index, ac)
+	mds.visual(vector, index, ac, 0)
 
 
 	print "Applying KMeans Clustering "	
@@ -135,7 +135,7 @@ def main():
 		# print "labels"
 
 		mds = visual.mds()
-		mds.visual(vector, index, km)
+		mds.visual(vector, index, km, 1)
 
 		# 	#print index[i], ":", labels[i]
 
